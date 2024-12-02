@@ -4,7 +4,7 @@
 
     <table>
         <tr>
-            <td>標題區圖片</td>
+            <td>標題區圖片：</td>
             <td><input type="file" name="img" id="img"></td>
         </tr>
         <tr>
