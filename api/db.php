@@ -143,10 +143,10 @@ class DB{
     }
 
 }
-
+// this要在物件內才可用
 function q($sql){
     $pdo=new PDO("mysql:host=localhost;charset=utf8;dbname=db10",'root','');
-    return $this->pdo->query($sql)->fetchAll();
+    return $pdo->query($sql)->fetchAll();
 } 
 
 function dd($array){
