@@ -21,15 +21,18 @@ if(isset($_POST['id'])){
                     $row['text']=$_POST['text'][$idx];
 
                     break;
+
                 case "admin":
                     $row['acc']=$_POST['acc'][$idx];
                     $row['pw']=$_POST['pw'][$idx];
                     break;
+
                 case "menu":
                     $row['text']=$_POST['text'][$idx];
                     $row['href']=$_POST['href'][$idx];
                     $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
                     break;
+                    
                 default:
                     $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
                     // 判斷式 有文字才讀取
