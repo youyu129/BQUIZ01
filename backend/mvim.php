@@ -16,7 +16,7 @@
         <p class="t cent botli">動畫圖片管理</p>
         <form method="post" action="./api/edit.php">
             <!-- 顯示資料的table     -->
-            <table width="100%">
+            <table width="100%" class="cent">
                 <tbody>
                     <tr class="yel">
                         <td width="70%">動畫圖片</td>

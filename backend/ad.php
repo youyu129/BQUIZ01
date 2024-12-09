@@ -32,7 +32,7 @@
                     <tr>
 
                         <td>
-                            <input type="text" name="text[]" value="<?=$row['text'];?>">
+                            <input type="text" name="text[]" value="<?=$row['text'];?>" style="width:95%">
                         </td>
                         <td>
                             <input type="checkbox" name="sh[]" value="<?=$row['id'];?>"
