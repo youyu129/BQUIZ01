@@ -13,30 +13,30 @@
         </tbody>
     </table>
     <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
-        <p class="t cent botli">動態文字廣告管理</p>
+        <p class="t cent botli">管理者帳號管理</p>
         <form method="post" action="./api/edit.php">
             <!-- 顯示資料的table     -->
             <table width="100%">
                 <tbody>
                     <tr class="yel">
-                        <td width="80%">動態文字廣告</td>
-                        <td width="10%">顯示</td>
+                        <td width="45%">帳號</td>
+                        <td width="45%">密碼</td>
                         <td width="10%">刪除</td>
                     </tr>
 
                     <?php
-                    $rows=$Ad->all();
+                    $rows=$Admin->all();
                     foreach($rows as $row){
+                        if($row['acc']!='admin'){
                     ?>
 
                     <tr>
 
                         <td>
-                            <input type="text" name="text[]" value="<?=$row['text'];?>">
+                            <input type="text" name="acc[]" value="<?=$row['acc'];?>">
                         </td>
                         <td>
-                            <input type="checkbox" name="sh[]" value="<?=$row['id'];?>"
-                                <?=($row['sh']==1)?'checked':'';?>>
+                            <input type="password" name="pw[]" value="<?=$row['pw'];?>">
                         </td>
                         <td>
                             <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
@@ -46,6 +46,7 @@
                     </tr>
 
                     <?php
+                        }
                     }
                     ?>
                 </tbody>
@@ -56,7 +57,7 @@
                         <td width="200px">
                             <input type="button"
                                 onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;./modal/<?=$do;?>.php?table=<?=$do;?>&#39;)"
-                                value="新增動態文字廣告">
+                                value="新增管理者帳號">
                         </td>
                         <td class="cent">
                             <input type="hidden" name="table" value="<?=$do;?>">
