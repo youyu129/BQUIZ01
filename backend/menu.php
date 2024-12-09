@@ -43,6 +43,7 @@
                         </td>
                         <td>
                             <!-- 次選單(直接讀取) -->
+                            <?=$Menu->count(['main_id'=>$row['id']]);?>
                         </td>
                         <td>
                             <input type="checkbox" name="sh[]" value="<?=$row['id'];?>"
