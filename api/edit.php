@@ -15,13 +15,6 @@ if(isset($_POST['id'])){
             $row=$$db->find($id);
             
             switch($table){
-                case "title":
-                    
-                    $row['sh']=(isset($_POST['sh']) && $_POST['sh']==$id)?1:0;
-                    $row['text']=$_POST['text'][$idx];
-
-                    break;
-
                 case "admin":
                     $row['acc']=$_POST['acc'][$idx];
                     $row['pw']=$_POST['pw'][$idx];
@@ -30,6 +23,7 @@ if(isset($_POST['id'])){
                 case "menu":
                     $row['text']=$_POST['text'][$idx];
                     $row['href']=$_POST['href'][$idx];
+                    // 多選 判斷有沒有在陣列裡面
                     $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
                     break;
                     
