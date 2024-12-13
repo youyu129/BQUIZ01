@@ -49,7 +49,9 @@
                         <div class="mainmu">
                             校園映象資料管理 </div>
                     </a>
-                    <a style="color:#000; font-size:13px; text-decoration:none;" href="?do=total">
+                    <a style="color:#000; font-size:13px; text-decoration:none;" href="#"
+                        onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;./modal/view.php&#39;)">
+                        </td>
                         <div class="mainmu">
                             進站總人數管理 </div>
                     </a>
