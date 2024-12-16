@@ -19,7 +19,7 @@
             <table width="100%" class="cent">
                 <tbody>
                     <tr class="yel">
-                        <td width="70%">網站標題</td>
+                        <td width="70%">校園映像資料圖片</td>
                         <td width="10%">顯示</td>
                         <td width="10%">刪除</td>
                         <td></td>
