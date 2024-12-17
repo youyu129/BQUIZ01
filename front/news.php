@@ -8,16 +8,16 @@
                     <hr>
                     <ul class="ssaa" style="list-style-type:decimal;">
                         <?php
-                            $div=4;
+                            $div=5;
                             $total=$News->count();
                             $pages=ceil($total/$div);
                             $now=$_GET['p']??1;
                             $start=($now-1)*$div;
-                            $rows=$News->all("limit $start,$div");
+                            $rows=$News->all(" limit $start,$div");
                             echo "<ol start='".($start+1)."'>";
 
                     foreach($rows as $row){
-                        echo "<li>";
+                        echo "<li class='sswww'>";
                         echo mb_substr($row['text'],0,20);
                         echo "<span class='all' style='display:none'>";
                         echo $row['text'];
@@ -51,9 +51,11 @@
                     style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;">
                 </div>
                 <script>
+// 改變彈出視窗的位置
+// $(this).offset(抓出現在位置的座標)-50往下
 $(".sswww").hover(
     function() {
-        $("#alt").html("" + $(this).children(".all").html() + "").css({
+        $("#alt").html("<pre>" + $(this).children(".all").html() + "</pre>").css({
             "top": $(this).offset().top - 50
         })
         $("#alt").show()
