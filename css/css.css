@@ -163,3 +163,15 @@ button:focus {
 	cursor: pointer;
 	text-decoration: none;
 }
+
+.mw {
+	/* mw的上層是mainmu */
+	position: absolute;
+	left: 100px;
+	top: 23px;
+	/* 顯示在上層 */
+	z-index: 99;
+	width: 200px;
+	/* 進入畫面時才不會直接顯示 */
+	display: none;
+}

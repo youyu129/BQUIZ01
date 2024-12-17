@@ -39,12 +39,32 @@ include_once "api/db.php"
                     <?php
                     $mains=$Menu->all(['sh'=>1,'main_id'=>0]);
                     foreach($mains as $main){
+                        // js.js裡面的mainmu
                         echo "<div class='mainmu cent'>";
                         echo "<a href='{$main['href']}'>";
                         echo $main['text'];
                         echo "</a>";
-                        echo "</div>";
-                    }
+                        echo "<div class='mw'>";
+                        // 先判斷這個主選單下面有沒有次選單
+                        // if(有次選單){
+                        //     顯示次選單
+                        // }
+                        // 找main_id有沒有是主選單的id
+                        // 有的話就是有次選單
+                        if($Menu->count(['main_id'=>$main['id']])>0){
+                           $subs=$Menu->all(['main_id'=>$main['id']]);
+                            foreach($subs as $sub){
+                                // js.js裡面的mainmu2
+                                echo "<div class='mainmu2 cent'>";
+                                echo "<a href='{$sub['href']}'>";
+                                echo $sub['text'];
+                                echo "</a>";
+                                echo "</div>";
+                            }
+                            echo "</div>";
+                            echo "</div>";
+                            }
+                        }
                     ?>
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
@@ -93,8 +113,8 @@ include_once "api/db.php"
                         echo "<img src='./upload/{$img['img']}'
                             style='width:150px;height:103px;border:3px  solid orange'>";
                         echo "</div>";
-                    }
-                    ?>
+                        }
+                        ?>
                     </div>
 
                     <!-- 下 -->
