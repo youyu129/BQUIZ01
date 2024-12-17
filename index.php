@@ -60,24 +60,7 @@ include_once "api/db.php"
 			include (file_exists($file))?$file:"./front/main.php";
 			?>
 
-            <div id="alt"
-                style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;">
-            </div>
-            <script>
-            $(".sswww").hover(
-                function() {
-                    $("#alt").html("" + $(this).children(".all").html() + "").css({
-                        "top": $(this).offset().top - 50
-                    })
-                    $("#alt").show()
-                }
-            )
-            $(".sswww").mouseout(
-                function() {
-                    $("#alt").hide()
-                }
-            )
-            </script>
+
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 <!--右邊-->
                 <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
@@ -86,7 +69,7 @@ include_once "api/db.php"
                     <span class="t botli">校園映象區</span>
 
                     <!-- 上 -->
-                    <div class="cent" id="up">
+                    <div class="cent" id="up" onclick="pp(1)">
                         <img src="./icon/up.jpg" alt="">
                     </div>
 
@@ -94,32 +77,39 @@ include_once "api/db.php"
                     <div class="cent">
                         <?php
                         $imgs=$Image->all(['sh'=>1]);
-                        foreach($imgs as $img){
-                            echo "<div>";
-                            echo "<img src='./upload/{$img['img']}' style='width:150px;height:103px;border:3px  solid orange'>";
-                            echo "</div>";
-                        }
-                        ?>
+                        foreach($imgs as $idx => $img){
+                            // im display:none
+                            echo "<div class='im' id='ssaa$idx'>";
+                        echo "<img src='./upload/{$img['img']}'
+                            style='width:150px;height:103px;border:3px  solid orange'>";
+                        echo "</div>";
+                    }
+                    ?>
                     </div>
 
                     <!-- 下 -->
-                    <div class="cent" id="dn">
+                    <div class="cent" id="dn" onclick="pp(2)">
                         <img src="./icon/dn.jpg" alt="">
                     </div>
 
                     <script>
+                    // 現在的頁數
                     var nowpage = 0,
-                        num = 0;
+                        // 有幾張圖片要顯示
+                        num = <?=$Image->count(['sh'=>1]);?>;
 
                     function pp(x) {
                         var s, t;
+                        // 如果現在頁數是1以上的話，執行pp的時候會減一頁
                         if (x == 1 && nowpage - 1 >= 0) {
                             nowpage--;
                         }
+                        // 如果現在頁數加一頁再乘以三小於條件，執行pp的時候會加一頁
                         if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
                             nowpage++;
                         }
                         $(".im").hide()
+                        // 迴圈會跑3次
                         for (s = 0; s <= 2; s++) {
                             t = s * 1 + nowpage * 1;
                             $("#ssaa" + t).show()
