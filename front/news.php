@@ -4,9 +4,47 @@
                     </marquee>
                     <div style="height:32px; display:block;"></div>
                     <!--正中央-->
+                    <h3 class="cent">更多最新消息資料區</h3>
+                    <hr>
+                    <ul class="ssaa" style="list-style-type:decimal;">
+                        <?php
+                            $div=4;
+                            $total=$News->count();
+                            $pages=ceil($total/$div);
+                            $now=$_GET['p']??1;
+                            $start=($now-1)*$div;
+                            $rows=$News->all("limit $start,$div");
+                            echo "<ol start='".($start+1)."'>";
+
+                    foreach($rows as $row){
+                        echo "<li>";
+                        echo mb_substr($row['text'],0,20);
+                        echo "<span class='all' style='display:none'>";
+                        echo $row['text'];
+                        echo "</span>";
+                        echo "</li>";
+                    }
+                    ?>
+                    </ul>
                     <div style="text-align:center;">
-                        <a class="bl" style="font-size:30px;" href="?do=meg&p=0">&lt;&nbsp;</a>
-                        <a class="bl" style="font-size:30px;" href="?do=meg&p=0">&nbsp;&gt;</a>
+                        <?php
+                        // < 小於 lt=less than
+                        // > 大於 gt=great than
+                        if(($now-1)>0){
+                            $prev=$now-1;
+                            echo "<a href='?do=$do&p=$prev'> < </a>";
+                        }
+
+                        for($i=1;$i<=$pages;$i++){
+                            echo "<a href='?do=$do&p=$i'> ";
+                            echo $i;
+                            echo " </a>";
+                        }
+                        if(($now+1)<=$pages){
+                            $next=$now+1;
+                            echo "<a href='?do=$do&p=$next'> > </a>";
+                        }
+                        ?>
                     </div>
                 </div>
                 <div id="alt"

@@ -64,9 +64,9 @@
             }
             ?>
         </span>
-        <!-- 要顯示符合條件的前五筆 -->
         <ul class="ssaa" style="list-style-type:decimal;">
             <?php
+            // 要顯示符合條件的前五筆
             $all_news=$News->all(['sh'=>1]," limit 5");
             foreach($all_news as $n){
                 echo "<li>";
