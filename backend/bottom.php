@@ -20,10 +20,7 @@
                 <tbody>
                     <tr class="yel">
                         <td width="50%">頁尾版權資料：</td>
-                        <!-- <?php
-                            $row=$Bottom->find(1);
-                        ?> -->
-                        <!-- <td width="50%"><input type="text" name="bottom" value="<?=$row['bottom'];?>"></td> -->
+
                         <!-- 簡化後 -->
                         <td width="50%"><input type="text" name="bottom" value="<?=$Bottom->find(1)['bottom'];?>"></td>
 
