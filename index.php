@@ -84,6 +84,29 @@ include_once "api/db.php"
                     onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
                 <div style="width:89%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
+
+                    <!-- 上 -->
+                    <div class="cent" id="up">
+                        <img src="./icon/up.jpg" alt="">
+                    </div>
+
+                    <!-- 圖片 -->
+                    <div class="cent">
+                        <?php
+                        $imgs=$Image->all(['sh'=>1]);
+                        foreach($imgs as $img){
+                            echo "<div>";
+                            echo "<img src='./upload/{$img['img']}' style='width:150px;height:103px;border:3px  solid orange'>";
+                            echo "</div>";
+                        }
+                        ?>
+                    </div>
+
+                    <!-- 下 -->
+                    <div class="cent" id="dn">
+                        <img src="./icon/dn.jpg" alt="">
+                    </div>
+
                     <script>
                     var nowpage = 0,
                         num = 0;
