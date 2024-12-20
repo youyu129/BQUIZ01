@@ -1,5 +1,5 @@
 <?php
-include_once "api/db.php"
+include_once "api/db.php";
 ?>
 
 <!DOCTYPE html
@@ -60,11 +60,12 @@ include_once "api/db.php"
                                 echo $sub['text'];
                                 echo "</a>";
                                 echo "</div>";
+                                }
                             }
                             echo "</div>";
                             echo "</div>";
                             }
-                        }
+                        
                     ?>
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
@@ -94,7 +95,8 @@ include_once "api/db.php"
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 <!--右邊-->
                 <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
-                    onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
+                    onclick="lo(&#39;?do=login&#39;)">管理登入</button>
+
                 <div style="width:89%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
 
@@ -111,7 +113,7 @@ include_once "api/db.php"
                             // im display:none
                             echo "<div class='im' id='ssaa$idx'>";
                         echo "<img src='./upload/{$img['img']}'
-                            style='width:150px;height:103px;border:3px  solid orange'>";
+                            style='width:150px;height:103px;border:3px solid orange'>";
                         echo "</div>";
                         }
                         ?>
